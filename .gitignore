@@ -1,0 +1,11 @@
+.idea
+node_modules
+coverage
+local-test
+aux4-cache
+package/aux4-cache
+package/dist
+go.sum
+**/.DS_Store
+**/*.zip
+.aux4.cache

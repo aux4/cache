@@ -1,0 +1,59 @@
+{
+  "scope": "aux4",
+  "name": "cache",
+  "version": "0.1.0",
+  "description": "Cache command output with TTL",
+  "license": "Apache-2.0",
+  "tags": [
+    "aux4",
+    "cache",
+    "performance"
+  ],
+  "dependencies": [
+    "aux4/config"
+  ],
+  "profiles": [
+    {
+      "name": "main",
+      "commands": [
+        {
+          "name": "cache",
+          "execute": [
+            "${packageDir}/aux4-cache values(cacheDuration, cacheDir, configFile, refresh) value(command) value(*)"
+          ],
+          "help": {
+            "text": "Cache command output with TTL. Subcommands: clear, list",
+            "variables": [
+              {
+                "name": "cacheDuration",
+                "text": "Cache duration in seconds (0 = auto from config, default 300)",
+                "default": "0"
+              },
+              {
+                "name": "cacheDir",
+                "text": "Cache directory",
+                "default": ".aux4.cache"
+              },
+              {
+                "name": "configFile",
+                "text": "Config file for cache patterns",
+                "default": ""
+              },
+              {
+                "name": "refresh",
+                "text": "Force re-execute and refresh the cache",
+                "default": "false"
+              },
+              {
+                "name": "command",
+                "text": "Command to cache (or subcommand: clear, list)",
+                "arg": true,
+                "multiple": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
